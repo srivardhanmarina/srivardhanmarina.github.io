@@ -1081,6 +1081,160 @@
   }
   .email-toast span { color: var(--accent); }
 
+  /* ─── SIDE PROJECTS ─── */
+  #side-projects {
+    padding: 6rem 0;
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+  #side-projects .side-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 3rem;
+  }
+  .side-intro {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    background: linear-gradient(135deg, rgba(157,128,255,0.06), rgba(0,255,170,0.04));
+    border: 1px solid rgba(157,128,255,0.15);
+    border-radius: var(--radius);
+    padding: 1rem 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .side-intro-icon {
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+  .side-intro-text {
+    font-size: 0.9rem;
+    color: var(--text2);
+    line-height: 1.6;
+  }
+  .side-intro-text strong { color: var(--text); }
+  .side-projects-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+  }
+  .side-card {
+    background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+    border: 1px solid rgba(255,255,255,0.07);
+    box-shadow: 0 4px 30px rgba(0,0,0,0.4), inset 0 1px 0px rgba(255,255,255,0.12);
+    backdrop-filter: blur(16px) saturate(130%);
+    border-radius: var(--radius);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s cubic-bezier(0.16,1,0.3,1), border-color 0.4s, box-shadow 0.4s;
+  }
+  .side-card::before {
+    content: '';
+    position: absolute;
+    top: -50%; left: -60%;
+    width: 45%; height: 200%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.18), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.65s cubic-bezier(0.4,0,0.2,1), opacity 0.3s;
+    opacity: 0;
+    pointer-events: none;
+  }
+  .side-card:hover::before { opacity: 1; left: 160%; }
+  .side-card:hover {
+    transform: translateY(-6px) scale(1.01);
+    border-color: rgba(157,128,255,0.35);
+    box-shadow: 0 20px 40px rgba(157,128,255,0.1), inset 0 1px 0px rgba(255,255,255,0.2);
+  }
+  .side-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+  }
+  .side-card-tag {
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    background: rgba(157,128,255,0.1);
+    border: 1px solid rgba(157,128,255,0.2);
+    padding: 0.25rem 0.7rem;
+    border-radius: 100px;
+  }
+  .side-card-live {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+  .side-card-live::before {
+    content: '';
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    animation: pulse 2s infinite;
+  }
+  .side-card-title {
+    font-family: var(--font-head);
+    font-size: 1.3rem;
+    font-weight: 800;
+    color: var(--text);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+  }
+  .side-card-desc {
+    font-size: 0.88rem;
+    color: var(--text2);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .side-card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+  }
+  .side-card-stack {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+  .side-stack-pill {
+    font-size: 0.68rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 100px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.06);
+    color: var(--text3);
+  }
+  .side-card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--accent2);
+    text-decoration: none;
+    padding: 0.45rem 1rem;
+    border: 1px solid rgba(157,128,255,0.3);
+    border-radius: 100px;
+    transition: all 0.2s ease;
+    white-space: nowrap;
+  }
+  .side-card-link:hover {
+    background: rgba(157,128,255,0.1);
+    border-color: var(--accent2);
+    color: #fff;
+    transform: translateY(-1px);
+  }
+
   /* ─── RESPONSIVE ─── */
 
   /* Tablet — 768px to 1024px */
@@ -1093,7 +1247,8 @@
     .stats-strip { padding: 2rem; gap: 2rem; }
     .about-grid { grid-template-columns: 1fr; gap: 2.5rem; }
     .timeline-item { grid-template-columns: 140px 2px 1fr; gap: 0 1.5rem; }
-    .projects-grid { grid-template-columns: 1fr 1fr; }
+    .side-projects-grid { grid-template-columns: 1fr 1fr; }
+    .side-inner { padding: 0 2rem; }
     nav { padding: 1.25rem 2rem; }
   }
 
@@ -1211,6 +1366,9 @@
 
     /* PROJECTS */
     .projects-grid { grid-template-columns: 1fr; }
+    .side-projects-grid { grid-template-columns: 1fr; }
+    #side-projects { padding: 3.5rem 0; }
+    .side-inner { padding: 0 1.5rem; }
 
     /* ABOUT */
     .about-grid { grid-template-columns: 1fr; gap: 2rem; }
@@ -1250,6 +1408,7 @@
     <li><a href="#skills">Skills</a></li>
     <li><a href="#experience">Experience</a></li>
     <li><a href="#projects">Projects</a></li>
+    <li><a href="#side-projects">Apps</a></li>
     <li><a href="#about">About</a></li>
   </ul>
   <a href="#contact" class="nav-cta">Let's connect →</a>
@@ -1264,6 +1423,7 @@
   <a href="#skills" class="mobile-nav-link">Skills</a>
   <a href="#experience" class="mobile-nav-link">Experience</a>
   <a href="#projects" class="mobile-nav-link">Projects</a>
+  <a href="#side-projects" class="mobile-nav-link">Apps</a>
   <a href="#about" class="mobile-nav-link">About</a>
   <a href="#contact" class="nav-cta-mobile mobile-nav-link">Let's connect →</a>
 </div>
@@ -1601,6 +1761,69 @@
     </div>
 
   </div>
+  </div>
+</section>
+
+<!-- ─── SIDE PROJECTS ─── -->
+<section id="side-projects">
+  <div class="side-inner">
+    <div class="section-label">Beyond Work</div>
+    <h2 class="section-title">Built for <em>Fun</em></h2>
+
+    <div class="side-intro reveal">
+      <div class="side-intro-icon">🧪</div>
+      <div class="side-intro-text">
+        QA is my craft — but curiosity is what drives me. I build small apps in my spare time to <strong>explore new ideas, sharpen full-stack instincts</strong>, and prove that a QA mindset makes better products. These are live and working.
+      </div>
+    </div>
+
+    <div class="side-projects-grid">
+
+      <div class="side-card reveal">
+        <div class="side-card-header">
+          <span class="side-card-tag">Productivity</span>
+          <span class="side-card-live">LIVE</span>
+        </div>
+        <div class="side-card-title">My Tasks</div>
+        <p class="side-card-desc">
+          A clean, minimal task manager built to get things done without the clutter. Create, organise, and track your daily tasks with a focus on simplicity and speed.
+        </p>
+        <div class="side-card-footer">
+          <div class="side-card-stack">
+            <span class="side-stack-pill">Firebase</span>
+            <span class="side-stack-pill">React</span>
+            <span class="side-stack-pill">Web App</span>
+          </div>
+          <a href="https://my-tasks-fadb890.web.app/" target="_blank" rel="noopener" class="side-card-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View App
+          </a>
+        </div>
+      </div>
+
+      <div class="side-card reveal">
+        <div class="side-card-header">
+          <span class="side-card-tag">Habit Tracking</span>
+          <span class="side-card-live">LIVE</span>
+        </div>
+        <div class="side-card-title">Streakly</div>
+        <p class="side-card-desc">
+          Build habits that stick. Streakly helps you track daily streaks, visualise consistency, and stay motivated — because good habits compound over time.
+        </p>
+        <div class="side-card-footer">
+          <div class="side-card-stack">
+            <span class="side-stack-pill">Firebase</span>
+            <span class="side-stack-pill">React</span>
+            <span class="side-stack-pill">Web App</span>
+          </div>
+          <a href="https://streakly-f0e2f.web.app/" target="_blank" rel="noopener" class="side-card-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+            View App
+          </a>
+        </div>
+      </div>
+
+    </div>
   </div>
 </section>
 
